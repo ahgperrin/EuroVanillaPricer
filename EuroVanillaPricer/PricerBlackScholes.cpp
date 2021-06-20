@@ -15,56 +15,56 @@
 double moneyness(Option option, Asset asset){
     //Param : Option Object, Aset Object
     //Return : Option Moneyness
-    return asset.get_current_price()  / option.get_strike();
+    return asset.currentPrice()  / option.strike();
     
 };
-double vol_term(Option option, Asset asset){
+double volTerm(Option option, Asset asset){
     //Param : Option Object, Aset Object
     //Return : volatility term
-    return asset.get_volatility()*sqrt(option.get_time_maturity());
+    return asset.volatility()*sqrt(option.timeMaturity());
 };
 
-double drift_term(Option option, Asset asset){
+double driftTerm(Option option, Asset asset){
     //Param : Option Object, Aset Object, Risk Free Rate
     //Return : drift term
-    return (asset.get_risk_free_rate() +(pow( asset.get_volatility(),2.00)/2))*option.get_time_maturity();
+    return (asset.riskFreeRate() +(pow( asset.volatility(),2.00)/2))*option.timeMaturity();
 };
 
-double d_1(Option option, Asset asset){
+double prodD1(Option option, Asset asset){
     //Param : Option Object, Aset Object, Risk Free Rate
     //Return : D1 (cf : Black and Scholes Model)
-    return (log(moneyness(option,asset)) + drift_term(option, asset)) / vol_term( option, asset);
+    return (log(moneyness(option,asset)) + driftTerm(option, asset)) / volTerm( option, asset);
 };
 
-double d_2(Option option, Asset asset){
+double probD2(Option option, Asset asset){
     //Param : Option Object, Aset Object, Risk Free Rate
     //Return : D2 (cf : Black and Scholes Model)
-    return d_1( option,  asset) - vol_term(option, asset);
+    return prodD1( option,  asset) - volTerm(option, asset);
 }
 
-double discount_factor(Option option, Asset asset){
+double discountFactor(Option option, Asset asset){
     //Param : Option Object, Risk Free Rate
     //Method : Continuous Time
     //Return : B(0,T), discount factor of 1 euro in T beginning t=0
-    return exp(-asset.get_risk_free_rate()*option.get_time_maturity());
+    return exp(-asset.riskFreeRate()*option.timeMaturity());
 }
 
-double option_price(Option option, Asset asset){
+double optionPrice(Option option, Asset asset){
     NormalDist N;
     
     double spot_part;
     double strike_part;
     
-    if (option.get_type()=="c") {
+    if (option.type()=="c") {
         //Compute Call Price
-        spot_part = asset.get_current_price() * N.get_cdf(d_1(option,asset));
-        strike_part = option.get_strike() * N.get_cdf(d_2(option,asset)) *discount_factor(option, asset);
+        spot_part = asset.currentPrice() * N.cdf(prodD1(option,asset));
+        strike_part = option.strike() * N.cdf(probD2(option,asset)) *discountFactor(option, asset);
         return spot_part - strike_part;
         
-    }else if (option.get_type()=="p"){
+    }else if (option.type()=="p"){
         //Compute Put Price
-        spot_part = asset.get_current_price() * N.get_cdf(-d_1(option,asset));
-        strike_part = option.get_strike() * N.get_cdf(-d_2(option,asset)) *discount_factor(option, asset);
+        spot_part = asset.currentPrice() * N.cdf(-prodD1(option,asset));
+        strike_part = option.strike() * N.cdf(-probD2(option,asset)) *discountFactor(option, asset);
         return strike_part - spot_part;
     }else{
         std::cout<<"Unkown Option Type/ Must be c or p"<<std::endl;

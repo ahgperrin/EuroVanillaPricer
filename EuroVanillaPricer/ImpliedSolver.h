@@ -9,5 +9,5 @@
 #define ImpliedSolver_h
 #include "AssetObject.h"
 #include "OptionObject.h"
-double vanilla_implied_volatility(Option option,Asset asset);
+double vanillaImpliedVolatility(Option option,Asset asset);
 #endif /* ImpliedSolver_h */

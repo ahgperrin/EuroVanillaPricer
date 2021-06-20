@@ -15,8 +15,8 @@ class NormalDist{
 public:
     //Constructor
     
-    double get_cdf(double x);
-    double get_pdf(double x);
+    double cdf(double x);
+    double pdf(double x);
     
     
 };

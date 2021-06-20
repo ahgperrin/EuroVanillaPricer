@@ -11,9 +11,9 @@
 class Asset{
     
 private:
-    std::string m_asset_name;
-    double m_current_price;
-    double m_risk_free_rate;
+    std::string m_assetName;
+    double m_currentPrice;
+    double m_riskFreeRate;
     double m_volatility;
 
 public:
@@ -21,16 +21,16 @@ public:
     Asset(std::string asset_name,double current_price,double risk_free_rate,double volatility);
     
     //getters
-    std::string get_asset_name(){return m_asset_name;};
-    double get_current_price(){return m_current_price;};
-    double get_risk_free_rate(){return m_risk_free_rate;};
-    double get_volatility(){return m_volatility;};
+    std::string assetName(){return m_assetName;};
+    double currentPrice(){return m_currentPrice;};
+    double riskFreeRate(){return m_riskFreeRate;};
+    double volatility(){return m_volatility;};
     
     //setters
-    void set_asset_name(std::string);
-    void set_current_price(double);
-    void set_risk_free_rate(double);
-    void set_volatility(double);
+    void setAssetName(std::string);
+    void setCurrentPrice(double);
+    void setRiskFreeRate(double);
+    void setVolatility(double);
     
 };
 #endif /* AssetObject_h */

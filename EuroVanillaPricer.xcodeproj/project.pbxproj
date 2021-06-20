@@ -80,8 +80,8 @@
 			children = (
 				BFA7B502267E8A4B0048A5A3 /* main.cpp */,
 				BFA7B517267E98890048A5A3 /* OptionObject.cpp */,
-				BFA7B522267EA3B20048A5A3 /* PricerBlackScholes.cpp */,
 				BFA7B51D267E9E190048A5A3 /* AssetObject.cpp */,
+				BFA7B522267EA3B20048A5A3 /* PricerBlackScholes.cpp */,
 				BFA7B527267F315B0048A5A3 /* NormalDistribution.cpp */,
 				BFA7B52C267F38ED0048A5A3 /* ImpliedSolver.cpp */,
 				BFA7B51B267E98F40048A5A3 /* OptionObject.h */,

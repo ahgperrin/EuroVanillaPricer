@@ -8,22 +8,22 @@
 #include <stdio.h>
 #include "AssetObject.h"
 
-Asset::Asset(std::string asset_name,double current_price,double risk_free_rate,double volatility){
-    set_asset_name(asset_name);
-    set_volatility(volatility);
-    set_risk_free_rate(risk_free_rate);
-    set_current_price(current_price);
+Asset::Asset(std::string assetName,double curentPrice,double riskFreeRate,double volatility){
+    setAssetName(assetName);
+    setVolatility(volatility);
+    setRiskFreeRate(riskFreeRate);
+    setCurrentPrice(curentPrice);
 };
 
-void Asset::set_asset_name(std::string name){
-    m_asset_name = name;
+void Asset::setAssetName(std::string name){
+    m_assetName = name;
 };
-void Asset::set_current_price(double current_price){
-    m_current_price = current_price;
+void Asset::setCurrentPrice(double current_price){
+    m_currentPrice = current_price;
 };
-void Asset::set_risk_free_rate(double risk_free_rate){
-    m_risk_free_rate = risk_free_rate;
+void Asset::setRiskFreeRate(double risk_free_rate){
+    m_riskFreeRate = risk_free_rate;
 };
-void Asset::set_volatility(double volatility){
+void Asset::setVolatility(double volatility){
     m_volatility = volatility;
 };
