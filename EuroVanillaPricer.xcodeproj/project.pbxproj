@@ -40,6 +40,7 @@
 		BFA7B52A267F31680048A5A3 /* NormalDistribution.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NormalDistribution.h; sourceTree = "<group>"; };
 		BFA7B52C267F38ED0048A5A3 /* ImpliedSolver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ImpliedSolver.cpp; sourceTree = "<group>"; };
 		BFA7B52F267F38F90048A5A3 /* ImpliedSolver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImpliedSolver.h; sourceTree = "<group>"; };
+		BFA7B531267F40270048A5A3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +57,7 @@
 		BFA7B4F6267E8A4B0048A5A3 = {
 			isa = PBXGroup;
 			children = (
+				BFA7B531267F40270048A5A3 /* README.md */,
 				BFA7B501267E8A4B0048A5A3 /* EuroVanillaPricer */,
 				BFA7B500267E8A4B0048A5A3 /* Products */,
 			);

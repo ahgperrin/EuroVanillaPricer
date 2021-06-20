@@ -24,7 +24,7 @@ double vanilla_implied_volatility(Option option,Asset asset,double risk_free_rat
     while (error > err_margin) {
         implied_vol = (a + b) / 2;
         asset.set_volatility(implied_vol);
-        if (option_price(option,asset,risk_free_rate)<option.get_market_quote()) {
+        if (option_price(option,asset)<option.get_market_quote()) {
             a = implied_vol;
         }else{
             b = implied_vol;
