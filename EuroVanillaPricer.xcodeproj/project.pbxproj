@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		BFA7B503267E8A4B0048A5A3 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFA7B502267E8A4B0048A5A3 /* main.cpp */; };
+		BFA7B519267E98890048A5A3 /* OptionObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFA7B517267E98890048A5A3 /* OptionObject.cpp */; };
+		BFA7B51E267E9E190048A5A3 /* AssetObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFA7B51D267E9E190048A5A3 /* AssetObject.cpp */; };
+		BFA7B523267EA3B20048A5A3 /* PricerBlackScholes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFA7B522267EA3B20048A5A3 /* PricerBlackScholes.cpp */; };
+		BFA7B528267F315B0048A5A3 /* NormalDistribution.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFA7B527267F315B0048A5A3 /* NormalDistribution.cpp */; };
+		BFA7B52D267F38ED0048A5A3 /* ImpliedSolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFA7B52C267F38ED0048A5A3 /* ImpliedSolver.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +30,16 @@
 /* Begin PBXFileReference section */
 		BFA7B4FF267E8A4B0048A5A3 /* EuroVanillaPricer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = EuroVanillaPricer; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFA7B502267E8A4B0048A5A3 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		BFA7B517267E98890048A5A3 /* OptionObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = OptionObject.cpp; sourceTree = "<group>"; };
+		BFA7B51B267E98F40048A5A3 /* OptionObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OptionObject.h; sourceTree = "<group>"; };
+		BFA7B51D267E9E190048A5A3 /* AssetObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AssetObject.cpp; sourceTree = "<group>"; };
+		BFA7B520267E9E2B0048A5A3 /* AssetObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AssetObject.h; sourceTree = "<group>"; };
+		BFA7B522267EA3B20048A5A3 /* PricerBlackScholes.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PricerBlackScholes.cpp; sourceTree = "<group>"; };
+		BFA7B525267EA3CE0048A5A3 /* PricerBlackScholes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PricerBlackScholes.h; sourceTree = "<group>"; };
+		BFA7B527267F315B0048A5A3 /* NormalDistribution.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NormalDistribution.cpp; sourceTree = "<group>"; };
+		BFA7B52A267F31680048A5A3 /* NormalDistribution.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NormalDistribution.h; sourceTree = "<group>"; };
+		BFA7B52C267F38ED0048A5A3 /* ImpliedSolver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ImpliedSolver.cpp; sourceTree = "<group>"; };
+		BFA7B52F267F38F90048A5A3 /* ImpliedSolver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImpliedSolver.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +73,16 @@
 			isa = PBXGroup;
 			children = (
 				BFA7B502267E8A4B0048A5A3 /* main.cpp */,
+				BFA7B517267E98890048A5A3 /* OptionObject.cpp */,
+				BFA7B522267EA3B20048A5A3 /* PricerBlackScholes.cpp */,
+				BFA7B51D267E9E190048A5A3 /* AssetObject.cpp */,
+				BFA7B527267F315B0048A5A3 /* NormalDistribution.cpp */,
+				BFA7B52C267F38ED0048A5A3 /* ImpliedSolver.cpp */,
+				BFA7B51B267E98F40048A5A3 /* OptionObject.h */,
+				BFA7B52F267F38F90048A5A3 /* ImpliedSolver.h */,
+				BFA7B525267EA3CE0048A5A3 /* PricerBlackScholes.h */,
+				BFA7B52A267F31680048A5A3 /* NormalDistribution.h */,
+				BFA7B520267E9E2B0048A5A3 /* AssetObject.h */,
 			);
 			path = EuroVanillaPricer;
 			sourceTree = "<group>";
@@ -119,6 +144,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFA7B503267E8A4B0048A5A3 /* main.cpp in Sources */,
+				BFA7B51E267E9E190048A5A3 /* AssetObject.cpp in Sources */,
+				BFA7B523267EA3B20048A5A3 /* PricerBlackScholes.cpp in Sources */,
+				BFA7B52D267F38ED0048A5A3 /* ImpliedSolver.cpp in Sources */,
+				BFA7B519267E98890048A5A3 /* OptionObject.cpp in Sources */,
+				BFA7B528267F315B0048A5A3 /* NormalDistribution.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
