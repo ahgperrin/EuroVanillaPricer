@@ -16,23 +16,26 @@ class Option{
     double m_time_maturity;
     double m_strike;
     double m_market_quote;
+    double m_basis;
     
     
     public:
     //Constructor
-    Option(std::string type,double time_maturity,double strike);
+    Option(std::string type,double time_maturity,double strike,int basis);
     
     //Getters
     std::string get_type(){return m_type;};
     double get_time_maturity(){return m_time_maturity;};
     double get_strike(){return m_strike;};
     double get_market_quote(){return m_market_quote;};
+    int get_basis(){return m_basis;};
     
     //Setters
     void set_type(std::string);
     void set_ttm(double);
     void set_strike(double);
     void set_market_quote(double);
+    void set_basis(int);
 
 };
 

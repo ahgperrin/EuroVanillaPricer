@@ -10,10 +10,11 @@
 #include <iostream>
 
 
-Option::Option(std::string type,double time_maturity,double strike){
+Option::Option(std::string type,double time_maturity,double strike, int basis){
     set_type(type);
     set_ttm(time_maturity);
     set_strike(strike);
+    set_basis(basis);
     
 }
 
@@ -37,4 +38,7 @@ void Option::set_strike(double strike){
 
 void Option::set_market_quote(double market_quote){
     m_market_quote =market_quote;
+    }
+void Option::set_basis(int basis){
+    m_basis =basis;
     }

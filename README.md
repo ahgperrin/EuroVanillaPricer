@@ -11,6 +11,7 @@ This code has been written to calculate option price with C++ Programming langua
         - Option Type : "c" for call / "p" for put
         - Another attribute is "market_quote" : You can set this attributes using his setter and this 
         attribute is used to solve implied volatility
+        - Basis : Number days in the year in order to compute the value of one day to compute theta
     Asset Class : Create an object Asset with his caracteristics:
         - Volatility
         - Rick free Rate of returns
@@ -31,44 +32,71 @@ This code has been written to calculate option price with C++ Programming langua
     #include "AssetObject.h"
     #include "PricerBlackScholes.h"
     #include "ImpliedSolver.h"
-
+    #include "Greeks.h"
 
     int main(int argc, const char * argv[]) {
         
         //Setup Put/Call and an asset
-        Option europtestcall("c",1,30);
-        Option europtestput("p",1,30);
-        Asset socgen("Societe Generale",26.20,0.01,0.2);
+        Option europtestcall("c",0.5,350,365);
+        Option europtestput("p",0.5,350,365);
+        Asset goldman("The Goldman Sachs Group",348.83,0.0145,0.25);
+        
+        std::cout<<"================ "<< goldman.get_asset_name()<<" ================"<<std::endl;
+        std::cout<<"========================================================="<<std::endl;
+        
+        std::cout << "Current Stock Price is: "<<goldman.get_current_price()<<" $"<<std::endl;
         
         // Calculate Call
-        std::cout << "Price of the call is: "<<option_price(europtestcall,  socgen)<<std::endl;
-        // Modify strike and recalculate
-        europtestcall.set_strike(20);
-        std::cout << "Price of the call is: "<<option_price(europtestcall,  socgen)<<std::endl;
-        
+        std::cout << "Price of the call is: "<<option_price(europtestcall,  goldman)<<std::endl;
+
         // Calculate Put
-        std::cout << "Price of the put is: "<<option_price(europtestput,  socgen)<<std::endl;
-        // Modify strike and recalculate
-        europtestput.set_strike(20);
-        std::cout << "Price of the put is: "<<option_price(europtestput,  socgen)<<std::endl;
-        
+        std::cout << "Price of the put is: "<<option_price(europtestput,  goldman)<<std::endl;
+
         // Set Market quote in order to solve volatility
         europtestcall.set_market_quote(7.05);
         europtestput.set_market_quote(6.03);
         
         // Solve implied Volatility
         
-        std::cout<< "Implied Volatility of the call is: "<<vanilla_implied_volatility(europtestcall, socgen, 0.01) <<std::endl;
-        std::cout<<"Implied Volatility of the put is: "<<vanilla_implied_volatility(europtestput, socgen, 0.01) <<std::endl;
+        std::cout<<"Implied Volatility of the call is: "<<vanilla_implied_volatility(europtestcall, goldman) <<std::endl;
+        std::cout<<"Implied Volatility of the put is: "<<vanilla_implied_volatility(europtestput, goldman) <<std::endl;
+        
+        // Compute Delta
+        std::cout<<"Delta of the put is: "<<delta(europtestput, goldman) <<std::endl;
+        std::cout<<"Delta of the call is: "<<delta(europtestcall, goldman) <<std::endl;
+        
+        // Compute Gamma
+        std::cout<<"Gamma is: "<<gamma(europtestput, goldman) <<std::endl;
+        
+        // Compute Vega
+        std::cout<<"Vega is: "<<vega(europtestput, goldman) <<std::endl;
+        
+        // Compute Rho
+        std::cout<<"Rho of the put is: "<<rho(europtestput, goldman) <<std::endl;
+        std::cout<<"Rho of the call is: "<<rho(europtestcall, goldman) <<std::endl;
+        
+        // Compute Theta
+        std::cout<<"Theta of the put is: "<<theta(europtestput, goldman) <<std::endl;
+        std::cout<<"Theta of the call is: "<<theta(europtestcall, goldman) <<std::endl;
+        
         return 0;
     }
-    
-    
+
     Output Will be :
     
-    Price of the call is: 0.897683
-    Price of the call is: 6.5654
-    Price of the put is: 4.39918
-    Price of the put is: 0.166398
-    Implied Volatility of the call is: 0.301762
-    Implied Volatility of the put is: 1.01417
+    
+    ================ The Goldman Sachs Group ================
+    =========================================================
+    Current Stock Price is: 348.83 $
+    Price of the call is: 25.2061
+    Price of the put is: 23.8478
+    Implied Volatility of the call is: 0.0646389
+    Implied Volatility of the put is: 0.0680967
+    Delta of the put is: -0.459952
+    Delta of the call is: 0.540048
+    Gamma is: 0.00638371
+    Vega is: 0.970981
+    Rho of the put is: -0.914611
+    Rho of the call is: 0.822747
+    Theta of the put is: -0.0674986
+    Theta of the call is: -0.0674524
