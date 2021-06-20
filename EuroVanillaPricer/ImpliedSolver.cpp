@@ -11,7 +11,7 @@
 #include "AssetObject.h"
 #include "OptionObject.h"
 
-double vanilla_implied_volatility(Option option,Asset asset,double risk_free_rate){
+double vanilla_implied_volatility(Option option,Asset asset){
     // Solve implied Volatility By dichotomie
     double a = 0;
     double b = 2;

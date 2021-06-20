@@ -11,14 +11,14 @@
 #include "AssetObject.h"
 #include "PricerBlackScholes.h"
 #include "ImpliedSolver.h"
-
+#include "Greeks.h"
 
 int main(int argc, const char * argv[]) {
     
     //Setup Put/Call and an asset
     Option europtestcall("c",1,30);
     Option europtestput("p",1,30);
-    Asset socgen("Societe Generale",26.20,0.01,0.2);
+    Asset socgen("Societe Generale",27.20,0.01,0.2);
     
     // Calculate Call
     std::cout << "Price of the call is: "<<option_price(europtestcall,  socgen)<<std::endl;
@@ -38,7 +38,12 @@ int main(int argc, const char * argv[]) {
     
     // Solve implied Volatility
     
-    std::cout<< "Implied Volatility of the call is: "<<vanilla_implied_volatility(europtestcall, socgen, 0.01) <<std::endl;
-    std::cout<<"Implied Volatility of the put is: "<<vanilla_implied_volatility(europtestput, socgen, 0.01) <<std::endl;
+    std::cout<< "Implied Volatility of the call is: "<<vanilla_implied_volatility(europtestcall, socgen) <<std::endl;
+    std::cout<<"Implied Volatility of the put is: "<<vanilla_implied_volatility(europtestput, socgen) <<std::endl;
+    
+    std::cout<<"Delta of the put is: "<<delta(europtestput, socgen) <<std::endl;
+    std::cout<<"Delta of the call is: "<<delta(europtestcall, socgen) <<std::endl;
+    
+    std::cout<<"Gamma is: "<<gamma(europtestput, socgen) <<std::endl;
     return 0;
 }
